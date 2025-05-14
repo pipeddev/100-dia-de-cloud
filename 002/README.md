@@ -1,33 +1,38 @@
-# 📅 Día 002 – Implementa una solución en la nube
+# 📅 Día 002 – Implementar una solución en la nube
 
 ## 📌 Tema
 
-Conocer los diferentes servicios para implmentar una solución acorde al caso de uso.
+Explorar los diferentes servicios disponibles en Google Cloud para implementar soluciones según el caso de uso.  
+Además, comenzar con Terraform creando un recurso básico.
 
 ---
 
 ## 📘 Descripción
 
-Hoy realicé un test de diagnostico con el objetivo de saber que servicio utilizar según el caso de uso requerido, además estoy realizando un curso en paralelo de terraform donde realicé un pequeño digrama que contiene una VPC con una subred publica y privada, dentro de la subred publica hay un instancia EC2 de AWS
+Hoy realicé un test diagnóstico enfocado en identificar qué servicio de Google Cloud utilizar en función de distintos escenarios y necesidades.
+
+Paralelamente, comencé un curso de **Terraform**, donde creé un archivo básico utilizando el recurso `local_file` para generar un archivo local. También aprendí los comandos esenciales para aplicar cambios:
+
+- `terraform plan`
+- `terraform apply`
 
 ---
 
 ## 🛠️ Herramientas utilizadas
 
-- Cloud Skill boost
-- Udemy
-- Draw.io
+- Cloud Skills Boost (Google Cloud)
+- Curso de Terraform en Udemy
 
 ---
 
 ## ✅ Lo que aprendí
 
-- Cómo diseñar un pequeño diagrama de arquitectura en Draw.io.
-- Como elegir el servicio correcto para el requerimiento del cliente.
-- Tenemos diferentes formas de crear un servicio en GCP:
-  - Programaticamente.
-  - Por consola.
-  - Por
+- Cómo seleccionar el servicio adecuado en GCP dependiendo del requerimiento del cliente.
+- Existen varias formas de desplegar servicios en Google Cloud:
+  - A través de la consola web.
+  - Usando la línea de comandos.
+  - De forma programática mediante herramientas como Terraform.
+- Uso básico de Terraform para crear recursos locales.
 
 ---
 
@@ -35,17 +40,13 @@ Hoy realicé un test de diagnostico con el objetivo de saber que servicio utiliz
 
 - [Sitio oficial de 100DaysOfCloud](https://www.100daysofcloud.com/)
 - [Repositorio base en GitHub](https://github.com/100DaysOfCloud/100DaysOfCloud)
-- [Draw.io](https://app.diagrams.net/)
 
 ---
 
 ## 🎯 Resultado del día
 
-Me falta por aprender el detalle de cada servicio y algunos comandos para la creación de servicios mediante CLI.
-
-### diagram
-
-![AWS](https://github.com/pipeddev/100-dia-de-cloud/tree/main/002/diagram.png)
+Comprendí los fundamentos para seleccionar servicios en GCP según distintos casos de uso y comencé a familiarizarme con Terraform.
+Aún necesito profundizar en el uso de la línea de comandos para la creación de recursos y en la configuración de redes dentro de la nube.
 
 ---
 
