@@ -34,7 +34,7 @@ También avancé en mi curso de Terraform, aprendiendo más sobre su ciclo de vi
 
 ### ☸️ GKE – Kubernetes
 
-![Diagrama de GKE](003/object-kubernetes.png)
+![Diagrama de GKE](https://github.com/pipeddev/100-dia-de-cloud/blob/main/003/object-kubernetes.png)
 
 - **Pod**: unidad más pequeña de ejecución, puede contener uno o más contenedores.
 - **Deployment**: objeto que administra un conjunto de Pods idénticos (réplicas).
@@ -42,9 +42,13 @@ También avancé en mi curso de Terraform, aprendiendo más sobre su ciclo de vi
 
 balanceo de carga en kubernetes.
 
-![Balanceo de carga](003/balanceo-carga.png)
+![Balanceo de carga](https://github.com/pipeddev/100-dia-de-cloud/blob/main/003/balanceo-carga.png)
 
 ### 📦 Terraform
+
+Aprender sobre el ciclo de vidad terraform.
+
+![Ciclo de vida terraform](https://github.com/pipeddev/100-dia-de-cloud/blob/main/003/ciclo-vida-terraform.png)
 
 - `terraform init`: Inicializa el entorno y descarga los proveedores.
 - `terraform plan`: Previsualiza los cambios que se aplicarán.
