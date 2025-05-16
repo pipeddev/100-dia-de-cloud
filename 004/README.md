@@ -72,6 +72,8 @@ terraform.tfvars
 
 [Tutorial oficial de Terraform – Estado](https://developer.hashicorp.com/terraform/tutorials/certification-003)
 
+[Repositorio estudio Terraform] (https://github.com/pipeddev/terraform-course)
+
 ---
 
 ## 🎯 Resultado del día
