@@ -1,4 +1,4 @@
-# 📅 Día XX – Uso del bloque `lifecycle {}` en Terraform
+# 📅 Día 006 – Uso del bloque `lifecycle {}` en Terraform
 
 ## 📌 Tema
 
