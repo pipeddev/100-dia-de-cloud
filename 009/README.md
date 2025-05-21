@@ -1,23 +1,27 @@
-# 📅 Día 009 – Maquinas virtuales y redes en la nube.
+# 📅 Día 009 – Máquinas virtuales y redes en la nube
 
 ## 📌 Tema
 
-Explorar maquinas virtuales y redes en la nube compute engine, escalamiento maquinas virtuales, cloud load balancing.
+Explorar conceptos clave relacionados con **Compute Engine**, redes virtuales (VPC), balanceo de cargas y servicios complementarios como DNS y CDN en Google Cloud.
 
 ---
 
 ## 📘 Descripción
 
-VPC: es un modelo privado, individual y seguro de la computación en la nube alojado dentro de una nube publica, como Google cloud.
+Hoy estudié los componentes fundamentales para desplegar aplicaciones en la nube usando **máquinas virtuales (VMs)** y cómo estas interactúan dentro de una **VPC (Virtual Private Cloud)**.
 
-- En una VPC, los clientes ejecutan código, almacenan datos, alojan sitios web, etc.
-- Se aloja remotamente en un proveedor de servicios en la nube publica.
-- Esto incluye segmentar redes, usar reglas firewall para restringir el acceso a instancias y crear rutas estáticas para reenviar el tráfico a destinos específicos.
+Una **VPC** proporciona un entorno privado, aislado y seguro dentro de la nube pública de Google, permitiendo al cliente:
 
-Cloud load balancing: es un balanceador de cargas que distribuye el trafico del usuario entre las diferentes instancias de una aplicación.
+- Ejecutar código, alojar sitios web, almacenar datos y más.
+- Segmentar redes, aplicar reglas de firewall, y definir rutas estáticas.
+- Controlar el acceso y el enrutamiento del tráfico de forma granular.
 
-DNS: traduce los nombres de host de internet a direcciones.
-Cloud CDN: Puedes usar este sistema para acelerar la entrega de contenido en tu app através de la red de distribución de contenidos.
+También aprendí cómo funciona **Cloud Load Balancing**, que distribuye automáticamente el tráfico entre varias instancias, mejorando la disponibilidad y escalabilidad de las aplicaciones.
+
+Otros conceptos importantes:
+
+- **Cloud DNS**: servicio que traduce nombres de dominio legibles por humanos a direcciones IP.
+- **Cloud CDN (Content Delivery Network)**: acelera la entrega de contenido mediante una red global de distribución, reduciendo la latencia y mejorando la experiencia del usuario.
 
 ---
 
@@ -29,6 +33,12 @@ Cloud CDN: Puedes usar este sistema para acelerar la entrega de contenido en tu 
 
 ## ✅ Lo que aprendí
 
+- Qué es una VPC y cómo configura un entorno de red privado dentro de GCP.
+- Cómo funcionan las reglas de firewall, subredes y rutas.
+- La importancia del **balanceo de carga** para distribuir el tráfico y escalar aplicaciones.
+- El rol de **Cloud DNS** y **Cloud CDN** para mejorar el rendimiento y la accesibilidad de aplicaciones globales.
+- Cómo se conectan estos servicios para construir una arquitectura de backend eficiente.
+
 ---
 
 ## 📚 Recursos útiles
@@ -38,6 +48,8 @@ Cloud CDN: Puedes usar este sistema para acelerar la entrega de contenido en tu 
 ---
 
 ## 🎯 Resultado del día
+
+Comprendí cómo crear entornos de red seguros y escalables en la nube, el uso de balanceadores de carga y servicios de red para mejorar el rendimiento y la disponibilidad de las aplicaciones.
 
 ---
 
