@@ -66,4 +66,7 @@ Implementé Jenkins como entorno CI/CD en minutos usando Marketplace. Además, c
 
 ---
 
-## 🤝 Conecta conmi
+## 🤝 Conecta conmigo
+
+- [LinkedIn](https://www.linkedin.com/in/luis-felipe-carrasco/)
+- [GitHub](https://github.com/pipeddev/)
