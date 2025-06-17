@@ -1,86 +1,91 @@
-# 🗓️ Día 031 – Terraform Cloud
+# 📅 Día 032 – Tipos de VM en Compute Engine
 
 ## 📌 Tema
 
-Introducción a Terraform Cloud y su uso para gestionar el `terraform.tfstate` de manera remota.
+Tipos avanzados de máquinas virtuales en Google Cloud: Spot, interrumpibles, protegidas, confidenciales y nodos dedicados.
 
 ---
 
 ## 📘 Descripción
 
-### ¿Qué es Terraform Cloud?
+### ☁️ VMs Interrumpibles
 
-Terraform Cloud es un servicio SaaS proporcionado por HashiCorp que permite almacenar el **state remoto** y colaborar en infraestructura como código de forma centralizada. Aunque puedes seguir ejecutando `plan` y `apply` de forma local, Terraform Cloud añade una capa de gestión y seguridad muy útil.
+- Las **VMs interrumpibles** son instancias temporales que pueden ser interrumpidas en cualquier momento.
+- Tienen un descuento del **60% al 91%** frente a las VMs estándar.
+- Si se interrumpe dentro del primer minuto, **no se cobra**.
+- Se ejecutan como máximo por **24 horas**.
+- Google envía una notificación **30 segundos antes** de ser interrumpidas.
+- No admiten **migraciones en vivo ni reinicios automáticos**.
+- Pueden ser reemplazadas por balanceadores de carga o mecanismos externos.
 
-Cuenta con una **capa gratuita**, ideal para comenzar.
+📌 **Caso de uso**: Procesamiento en lote, donde una interrupción solo retrasa el proceso, sin interrumpir completamente la operación.
 
-### Funcionalidades principales
+---
 
-- 🌐 Almacenamiento remoto y seguro del Terraform state.
-- 🤝 Colaboración entre equipos.
-- 💻 Entornos consistentes y confiables.
-- 🎛️ Interfaz web intuitiva.
-- 🔐 Gestión de equipos y control de permisos.
-- 📦 Registro privado de módulos.
-- 🛡️ Integración de políticas con Sentinel.
+### 💡 VMs Spot
 
-### Pasos para usar Terraform Cloud
+- Son la evolución de las VMs interrumpibles.
+- **No tienen límite de tiempo** de ejecución (a diferencia de las interrumpibles).
+- Usan el mismo modelo de precios que las interrumpibles.
+- Pueden ser interrumpidas si Google necesita recuperar los recursos.
+- Su disponibilidad varía según la demanda y zona.
+- No admiten migración en vivo ni reinicios automáticos.
 
-1. **Registro** en la plataforma:
+📌 **Consejo**: Es más fácil obtener capacidad Spot con máquinas pequeñas.
 
-   - 👉 https://app.terraform.io/
+---
 
-2. **Crear un Workspace**:
+### 🔒 Nodos dedicados (User-only Nodes)
 
-   - Asociarlo a tu repositorio (GitHub, GitLab, Bitbucket, etc.).
+- Servidores físicos dedicados a un solo proyecto.
+- Garantizan **aislamiento físico** para cargas de trabajo con requisitos de cumplimiento o seguridad.
+- Permiten agrupar múltiples VMs del mismo proyecto en un mismo host.
+- Admite tipos de máquina personalizados y licencias existentes.
+- Se puede usar **reinicio in situ** para optimizar recursos.
 
-3. **Configurar la versión de Terraform**:
+---
 
-   - Asegúrate de que coincida con la versión en tu entorno local.
+### 🛡️ VMs Protegidas (Shielded VMs)
 
-4. **Agregar variables sensibles**:
+- Proporcionan **integridad verificable** frente a rootkits o malware de bajo nivel.
+- Son parte de la iniciativa **Shielded Cloud**.
+- Usan funciones como **vTPM** para proteger los datos y el arranque seguro.
+- Para utilizarlas, debes seleccionar una **imagen protegida** al crear la VM.
 
-   - `access_key` y `secret_key` de tu proveedor en el menú de Variables.
+---
 
-5. **Ejecutar un run**:
+### 🔐 VMs Confidenciales
 
-   - Tipos de ejecución disponibles:
-     - `Plan and apply` (estándar).
-     - `Plan only`.
-     - `Refresh state`.
-     - `Allow empty apply`.
-
-6. **Eliminar recursos**:
-   - Ve a: `Settings` → `Destruction and Deletion` → `Queue destroy plan`.
-
-### Ejemplo de proyecto
-
-📁 Repositorio: [cloud-terraform-example](https://github.com/pipeddev/cloud-terraform-example)
-
-📸 Dashboard:
-
-![Dashboard proyecto de terraform cloud](https://github.com/pipeddev/100-dia-de-cloud/blob/main/031/page-terraform-cloud.png)
+- Encriptan **datos en uso**, no solo en reposo o en tránsito.
+- Usan procesadores **AMD EPYC 2da generación (Rome)** con tecnología **SEV**.
+- No requieren cambios en el código de tus aplicaciones.
+- Ofrecen **rendimiento optimizado** para cargas de memoria alta.
+- Google **no tiene acceso** a las claves de cifrado.
+- Puedes seleccionarlas desde la consola, API o CLI.
 
 ---
 
 ## ✅ Lo que aprendí
 
-- Qué es Terraform Cloud y cómo utilizarlo para almacenar el estado remoto.
-- Cómo integrar Terraform Cloud con GitHub y automatizar workflows.
-- Las distintas opciones de ejecución y destrucción de infraestructura desde la consola web.
+- Diferencias clave entre VMs estándar, interrumpibles, Spot, protegidas y confidenciales.
+- Casos de uso y ventajas para cada tipo de instancia.
+- Cómo seleccionar el tipo correcto según necesidades de seguridad, disponibilidad y costos.
+- Qué es un nodo de usuario único y cómo ayuda al cumplimiento normativo.
 
 ---
 
 ## 📚 Recursos útiles
 
-- [Terraform Cloud – Documentación oficial](https://developer.hashicorp.com/terraform/cloud-docs)
-- [Terraform CLI vs Terraform Cloud](https://developer.hashicorp.com/terraform/cli/cloud)
+- [Spot VMs](https://cloud.google.com/compute/docs/instances/spot)
+- [Shielded VMs](https://cloud.google.com/compute/shielded-vm/)
+- [Confidential VMs](https://cloud.google.com/confidential-computing)
+- [User-only Nodes](https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes)
 
 ---
 
-## 🌟 Resultado del día
+## 🎯 Resultado del día
 
-Implementé Terraform Cloud para almacenar el `terraform.tfstate` remoto, conecté un repositorio desde GitHub y realicé operaciones de infraestructura directamente desde la consola web. Un paso clave hacia la colaboración y automatización segura en proyectos de infraestructura.
+Exploré opciones avanzadas de instancias en Google Cloud, entendiendo sus beneficios en términos de costo, seguridad y rendimiento. Ahora puedo tomar mejores decisiones al elegir el tipo de VM ideal para cada proyecto.
 
 ---
 
