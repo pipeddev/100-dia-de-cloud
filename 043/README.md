@@ -1,70 +1,84 @@
-# 📅 Día 042 – IAM: Otorgar y revocar roles, y uso de Service Account User
+# 📅 Día 043 – Servicios de almacenamiento y bases de datos en Google Cloud
 
 ## 📌 Tema
 
-Control de acceso en Google Cloud con IAM: uso del rol **Usuario de cuenta de servicio**, asignación y revocación de roles, y configuración de permisos específicos sobre recursos como Cloud Storage y Compute Engine.
+Exploración de los principales servicios de almacenamiento y bases de datos disponibles en Google Cloud Platform.
 
 ---
 
 ## 📘 Descripción
 
-En este laboratorio interactivo exploré cómo otorgar y revocar roles a usuarios y cuentas de servicio, además de configurar permisos específicos a nivel de proyecto y recurso. A través de una serie de pasos prácticos, experimenté con la administración del rol **`Service Account User`** para otorgar permisos mínimos necesarios y permitir el acceso controlado a buckets de Cloud Storage desde una VM con identidad de cuenta de servicio.
+Hoy repasé los distintos servicios de almacenamiento de datos que ofrece Google Cloud y cómo elegir el adecuado según el tipo de datos, estructura, necesidades de análisis, latencia y escalabilidad.
+
+Aprendí que todas las aplicaciones necesitan almacenar datos —ya sea información empresarial, contenido multimedia o datos de sensores— y que Google Cloud ofrece una variedad de soluciones adaptadas a cada caso de uso.
 
 ---
 
-## 🎯 Objetivos alcanzados
+### 🗂️ Servicios destacados
 
-- Usar IAM para implementar el control de acceso basado en roles.
-- Restringir el acceso a funciones o recursos específicos.
-- Configurar y usar el rol **Usuario de cuenta de servicio**.
-- Delegar accesos mínimos necesarios mediante políticas de IAM.
-- Crear cuentas de servicio con permisos específicos.
-- Asociar cuentas de servicio a VMs y observar su comportamiento.
+- **Cloud Storage**: Almacenamiento de objetos, ideal para imágenes, backups, archivos multimedia. Soporta alta durabilidad y disponibilidad.
+- **Filestore**: Sistema de archivos compartido, útil para aplicaciones que requieren almacenamiento POSIX.
+- **Cloud SQL**: Base de datos relacional totalmente administrada compatible con MySQL, PostgreSQL y SQL Server. Ideal para aplicaciones tradicionales.
+- **Cloud Spanner**: Base de datos relacional global y escalable, con características de consistencia fuerte y alta disponibilidad.
+- **AlloyDB**: Base de datos relacional que combina procesamiento transaccional y analítico (HTAP), construida sobre PostgreSQL.
+- **Firestore**: Base de datos de documentos NoSQL en tiempo real, pensada para aplicaciones móviles/web.
+- **Cloud Bigtable**: Base de datos NoSQL de columnas anchas, optimizada para baja latencia y grandes volúmenes de datos.
+- **Memorystore**: Servicio de caché en memoria completamente administrado compatible con Redis y Memcached.
 
----
+### 🧠 Árbol de decisión para elegir el servicio correcto
 
-## 🧪 Actividades realizadas
+1. ¿Tus datos están estructurados?
 
-1. **Creación de dos usuarios temporales (Username 1 y Username 2)** para gestionar el acceso desde distintos perfiles.
-2. **Exploración de roles desde IAM**: Visualización de permisos desde ambas cuentas.
-3. **Creación de un bucket de Cloud Storage**, subida de un archivo y prueba de acceso con un usuario con rol limitado.
-4. **Revocación de acceso a Username 2** y verificación de la pérdida de visibilidad del recurso.
-5. **Asignación del rol `Storage Object Viewer`** a Username 2 y validación desde la terminal con Cloud Shell.
-6. **Creación de una cuenta de servicio personalizada** llamada `read-bucket-objects`, con permisos de lectura sobre Storage.
-7. **Asignación del rol `Service Account User` al dominio `altostrat.com`** para simular acceso a través de una VM.
-8. **Creación de una instancia de VM** con dicha cuenta de servicio asignada y pruebas vía SSH:
+   - **No estructurados**:
 
-   - Lectura de objetos desde Cloud Storage (✅ éxito).
-   - Intento de escritura fallido (❌ `403 AccessDenied`).
+     - ¿Necesitas un sistema de archivos compartido? ➡️ Usa **Filestore**
+     - Si no ➡️ Usa **Cloud Storage**
 
-9. **Actualización de permisos** de la cuenta de servicio a `Storage Object Creator` y nuevo intento exitoso de escritura (✅ éxito).
+   - **Estructurados**:
+
+     - ¿Carga de trabajo enfocada en análisis?
+
+       - Sí:
+
+         - **BigQuery**: Optimizado para SQL y datos inmutables
+         - **Bigtable**: Latencia baja, grandes volúmenes, casos como IoT o AdTech
+
+       - No:
+
+         - ¿Son relacionales?
+
+           - No:
+
+             - ¿Necesitas caché? ➡️ Usa **Memorystore**
+             - Si no ➡️ Usa **Firestore**
+
+           - Sí:
+
+             - ¿Necesitas HTAP? ➡️ Usa **AlloyDB**
+             - ¿Necesitas escalabilidad global? ➡️ Usa **Spanner**
+             - Si no ➡️ Usa **Cloud SQL**
 
 ---
 
 ## ✅ Lo que aprendí
 
-- La importancia del principio de privilegios mínimos (Least Privilege).
-- Cómo usar cuentas de servicio para representar componentes de una aplicación.
-- Cómo otorgar acceso granular a recursos desde una VM mediante identidades de servicio.
-- Que una instancia hereda el contexto de IAM de su cuenta de servicio.
-- Que los roles pueden otorgarse por recurso, proyecto, o jerárquicamente.
+- A identificar cuándo usar Cloud SQL, Spanner, Firestore o Bigtable.
+- A distinguir entre almacenamiento de objetos (Cloud Storage) y archivos compartidos (Filestore).
+- A utilizar el árbol de decisión para seleccionar servicios basados en tipo de datos, análisis, escalabilidad y latencia.
 
 ---
 
 ## 📚 Recursos útiles
 
-- [Documentación oficial sobre Service Accounts](https://cloud.google.com/iam/docs/understanding-service-accounts)
-- [Políticas de IAM](https://cloud.google.com/iam/docs/policies)
-- [Guía práctica: Rol de Service Account User](https://cloud.google.com/iam/docs/impersonating-service-accounts)
+- [Google Cloud Storage Services Overview](https://cloud.google.com/products/storage)
+- [Choosing the right database option](https://cloud.google.com/database-options)
+- [Documentación oficial de cada servicio: SQL, Firestore, Spanner, BigQuery, etc.](https://cloud.google.com/docs)
 
 ---
 
 ## 🌟 Resultado del día
 
-- Automatización del acceso a recursos con cuentas de servicio.
-- Validación práctica del control de permisos a través de roles IAM.
-- Aislamiento de permisos por identidad y recurso.
-- Simulación de usuarios para validar configuraciones IAM.
+✔️ Consolidé el panorama general de los servicios de almacenamiento y bases de datos de GCP. Preparado para los labs prácticos de este módulo.
 
 ---
 
