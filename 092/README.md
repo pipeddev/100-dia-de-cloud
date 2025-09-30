@@ -1,53 +1,49 @@
-# 📅 Día 091 – Cloud Logging en Google Cloud
+# 📅 Día 092 – Error Reporting en Google Cloud
 
 ## 📌 Tema
 
-Exploración de **Cloud Logging**, el servicio de Google Cloud para recopilar, almacenar, analizar y supervisar registros y eventos.
+Exploración de **Error Reporting**, el servicio de Google Cloud para detectar, analizar y notificar fallas en aplicaciones.
 
 ---
 
 ## 📘 Descripción
 
-Hoy aprendí sobre **Cloud Logging**, una herramienta que permite centralizar y trabajar con los registros generados por aplicaciones, servicios e infraestructura.
-Con Cloud Logging es posible recopilar automáticamente registros de **App Engine, Cloud Run, Compute Engine (con agente de Logging), GKE**, y servicios externos integrados mediante bibliotecas o SDKs.
+Hoy aprendí sobre **Error Reporting**, una herramienta que recopila automáticamente excepciones y fallas de aplicaciones que se ejecutan en Google Cloud.
+Su gran ventaja es que procesa errores en **tiempo real** y permite tener un panorama claro de los problemas sin depender de que los usuarios los reporten.
 
-Además, ofrece funciones avanzadas como el **Explorador de registros**, la creación de **métricas basadas en logs**, la integración con **Cloud Monitoring** y la exportación hacia **Cloud Storage, BigQuery o Pub/Sub** para análisis más detallados.
+Error Reporting presenta la información en una interfaz amigable con gráficos de tiempo, cantidad de casos, usuarios afectados, URL de las solicitudes y un stacktrace limpio que facilita la depuración.
+Además, permite configurar **alertas instantáneas**, navegando directamente desde la notificación hasta los detalles del error.
 
 ---
 
 ## 🛠️ Herramientas utilizadas
 
-- Google Cloud Logging
-- Explorador de registros
-- Cloud Monitoring (integración)
-- BigQuery / Pub/Sub / Cloud Storage (destinos de exportación)
+- Google Cloud Error Reporting
+- Cloud Logging (integración con registros)
+- Alertas de notificación
 
 ---
 
 ## ✅ Lo que aprendí
 
-- Cloud Logging soporta **recopilación lista para usar** e integración con SDKs populares.
-- Permite **centralizar registros** a nivel de organización, carpeta o proyecto.
-- Los logs pueden **exportarse** para análisis en BigQuery, almacenamiento en Cloud Storage o procesamiento en tiempo real con Dataflow vía Pub/Sub.
-- Se pueden **crear métricas basadas en logs** para paneles, alertas y SLOs.
-- La retención varía:
-
-  - Logs de acceso a datos → 30 días (configurable hasta 3,650 días).
-  - Logs de administrador → 400 días.
+- Los errores se agrupan y procesan en **segundos**, facilitando la identificación de problemas recurrentes.
+- Se pueden filtrar y ordenar errores por versión, fecha o cantidad de usuarios impactados.
+- **Notificación inmediata**: no hay que esperar a que un usuario reporte el fallo.
+- Admite múltiples lenguajes de programación y muestra un stacktrace claro para depuración.
+- Se pueden crear **alertas personalizadas** para recibir notificaciones sobre errores nuevos.
 
 ---
 
 ## 📚 Recursos útiles
 
-- [Documentación oficial de Cloud Logging](https://cloud.google.com/logging/docs)
-- [Métricas basadas en registros](https://cloud.google.com/logging/docs/logs-based-metrics)
-- [Exportar logs](https://cloud.google.com/logging/docs/export)
+- [Documentación oficial de Error Reporting](https://cloud.google.com/error-reporting/docs)
+- [Cómo integrar Error Reporting con Logging](https://cloud.google.com/error-reporting/docs/formatting-error-messages)
 
 ---
 
 ## 🎯 Resultado del día
 
-Comprendí cómo **Cloud Logging permite centralizar y analizar registros en tiempo real**, ofreciendo visibilidad, cumplimiento, depuración de aplicaciones y soporte a operaciones de seguridad.
+Comprendí cómo **Error Reporting ayuda a mejorar la confiabilidad y experiencia del usuario** al detectar errores de forma proactiva, agruparlos y notificarlos en tiempo real, facilitando la respuesta rápida y la corrección en aplicaciones productivas.
 
 ---
 
