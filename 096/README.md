@@ -1,4 +1,4 @@
-# 📅 Día 095 – Modelo de datos en Cloud Monitoring y visualización en paneles
+# 📅 Día 096 – Modelo de datos en Cloud Monitoring y visualización en paneles
 
 ## 📌 Tema
 
